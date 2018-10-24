@@ -54,9 +54,10 @@ function main() {
       let right = line.substring(index.end, line.length);
       let value = `${left}${RED}${key}${NC}${right}`;
 
-      outPair(key, value);
       // Color Offset
       offset += 13;
     });
+
+    outPair(key, value);
   });
 }
