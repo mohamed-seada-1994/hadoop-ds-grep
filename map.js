@@ -49,15 +49,19 @@ function main() {
 
     // Color Matches
     matchIndex.forEach(index => {
-      let key = line.substring(index.start, index.end);
-      let left = line.substring(0, index.start);
-      let right = line.substring(index.end, line.length);
-      let value = `${left}${RED}${key}${NC}${right}`;
+      let start = offset + index.start;
+      let end = offset + index.end;
+
+      let key = line.substring(start, end);
+      let left = line.substring(0, start);
+      let right = line.substring(end, line.length);
+      
+      line = `${left}${RED}${key}${NC}${right}`;
 
       // Color Offset
-      offset += 13;
+      offset += 11;
     });
 
-    outPair(key, value);
+    outPair(pattern, line);
   });
 }
